@@ -5,6 +5,7 @@ Este projeto consiste em uma aplicação de Amigo Secreto feita com HTML, CSS e 
 ## Tecnologias
 
 ## Estrutura do projeto
+```
 ├── assets/
 │   ├── amigo-secreto.png
 │   ├── play_circle_outline.png
@@ -13,6 +14,7 @@ Este projeto consiste em uma aplicação de Amigo Secreto feita com HTML, CSS e 
 ├── index.html
 ├── README.md
 ├── style.css
+```
 
 ## Como rodar
 
