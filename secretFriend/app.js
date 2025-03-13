@@ -35,7 +35,7 @@ const addFriendToList = () => {
 const validateFriendName = (name) => {
 
     if (name === '')  return [false, 'Name cannot be empty!'];
-    return [true, `Your friends ${name} added successfully!`];
+    return [true, `Your friend ${name} has been successfully added!`];
 }
 
 const generateRandomNumber = () => Math.floor(Math.random() * friends.length);
@@ -47,7 +47,6 @@ const drawFriends = () => {
 
     modal(friends[drawIndex]);
 }
-
 
 modal = (name) => {
 
