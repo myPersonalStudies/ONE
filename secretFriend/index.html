@@ -20,8 +20,15 @@
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add">Adicionar</button>
+
+                <div>
+                    <input type="text" id="amigo" class="input-name" placeholder="Digite um nome" autofocus>
+                    <button class="button-add">Adicionar</button>
+                </div>
+
+                <p class="error-message"></p>
+                    
+                
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
@@ -35,6 +42,21 @@
             </div>
         </section>
     </main>
+
+    <modal>
+
+
+        <div>
+
+            <h2 class="modal-title">Resultado do sorteio!</h2>
+    
+            <p> O amigo sorteado foi o(a) </p>
+            <span>Isaac!</span>
+    
+            <button class="button-close">Fechar</button>
+        </div>
+
+    </modal>
 
     <script src="app.js" defer></script>
 </body>

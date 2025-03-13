@@ -10,24 +10,32 @@ const addFriendToList = () => {
 
     const friendName = document.querySelector('.input-name').value;
 
+    const errorParagraph = document.querySelector('.error-message');
+
     if (validateFriendName(friendName)[0]) {
+
+        errorParagraph.style.display = 'block';
+        errorParagraph.classList.add('success');
+        errorParagraph.textContent = validateFriendName(friendName)[1];
 
         friends.push(friendName);
         console.log(friends);
 
-        alert('Friend added successfully');
+        document.querySelector('.input-name').value = '';
     }
     
     else {
-
-        alert(validateFriendName(friendName)[1]);         
+        
+        errorParagraph.textContent = validateFriendName(friendName)[1];
+        errorParagraph.classList.remove('success');
+        errorParagraph.style.display = 'block';
     }
 }
 
 const validateFriendName = (name) => {
 
-    if (name === '')  return [false, 'Name cannot be empty'];
-    return [true];
+    if (name === '')  return [false, 'Name cannot be empty!'];
+    return [true, `Your friends ${name} added successfully!`];
 }
 
 const generateRandomNumber = () => Math.floor(Math.random() * friends.length);
@@ -36,6 +44,24 @@ const drawFriends = () => {
 
     drawIndex = generateRandomNumber();
     console.log(friends[drawIndex]);
+
+    modal(friends[drawIndex]);
 }
 
+
+modal = (name) => {
+
+    const modal = document.querySelector('modal');
+    const modalClose = document.querySelector('.button-close');
+
+    const modalContent = document.querySelector('span');
+
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    modal.style.backdropFilter = 'blur(5px)';
+    modal.style.display = 'flex';
+
+    modalContent.textContent = name + '!';
+
+    modalClose.addEventListener('click', () => modal.style.display = 'none');
+}
 
