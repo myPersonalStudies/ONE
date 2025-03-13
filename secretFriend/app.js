@@ -1,7 +1,12 @@
-const friends = ['Isaac', 'John', 'Jane', 'Doe'];
+const friends = [];
 
 const addFriendButton = document.querySelector('.button-add');
 const drawFriendButton = document.querySelector('.button-draw');
+
+drawFriendButton.disabled = true;
+
+const handleDrawFriendMouseOver = () => alert('Você precisa adicionar pelo menos dois amigos para sortear!');
+drawFriendButton.addEventListener('mouseover', handleDrawFriendMouseOver);
 
 addFriendButton.addEventListener('click', () => addFriendToList());
 drawFriendButton.addEventListener('click', () => drawFriends());
@@ -13,15 +18,20 @@ const addFriendToList = () => {
     const errorParagraph = document.querySelector('.error-message');
 
     if (validateFriendName(friendName)[0]) {
-
+                
         errorParagraph.style.display = 'block';
         errorParagraph.classList.add('success');
         errorParagraph.textContent = validateFriendName(friendName)[1];
 
         friends.push(friendName);
-        console.log(friends);
 
         document.querySelector('.input-name').value = '';
+
+        if(friends.length >= 2) {
+
+            drawFriendButton.disabled = false;
+            drawFriendButton.removeEventListener('mouseover', handleDrawFriendMouseOver);
+        }
     }
     
     else {
@@ -34,8 +44,8 @@ const addFriendToList = () => {
 
 const validateFriendName = (name) => {
 
-    if (name === '')  return [false, 'Name cannot be empty!'];
-    return [true, `Your friend ${name} has been successfully added!`];
+    if (name === '')  return [false, 'Acho que você se esqueceu do nome do amigo!'];
+    return [true, `${name} foi adicionado(a) com sucesso!`];
 }
 
 const generateRandomNumber = () => Math.floor(Math.random() * friends.length);
@@ -43,7 +53,6 @@ const generateRandomNumber = () => Math.floor(Math.random() * friends.length);
 const drawFriends = () => {
 
     drawIndex = generateRandomNumber();
-    console.log(friends[drawIndex]);
 
     modal(friends[drawIndex]);
 }
@@ -64,3 +73,6 @@ modal = (name) => {
     modalClose.addEventListener('click', () => modal.style.display = 'none');
 }
 
+document.querySelector('.input-name').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') addFriendToList(); 
+})

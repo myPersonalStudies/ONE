@@ -185,6 +185,11 @@ ul {
     &:hover {
         background-color: rgb(250, 43, 43);
     }
+
+    &:disabled {
+        background-color: var(--color-tertiary);
+        cursor: not-allowed;
+    }
 }
 
 .button-draw img {
