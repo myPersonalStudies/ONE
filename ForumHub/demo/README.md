@@ -36,35 +36,6 @@ Uma API REST completa para gerenciamento de fóruns desenvolvida com Spring Boot
     ✅ Proteção contra duplicatas
     ✅ Validações de negócio
 
-## ️ Arquitetura do Projeto
-
-```angular181html
-
-src/main/java/com/alura/forumhub/
-├── controller/           # Controladores REST
-│   ├── UsuarioController.java
-│   ├── TopicoController.java
-│   └── AutenticacaoController.java
-├── domain/              # Entidades e regras de negócio
-│   ├── usuario/         # Domínio de usuários
-│   │   ├── Usuario.java
-│   │   ├── UsuarioRepository.java
-│   │   └── [DTOs...]
-│   └── topico/          # Domínio de tópicos
-│       ├── Topico.java
-│       ├── TopicoRepository.java
-│       ├── StatusTopico.java
-│       └── [DTOs...]
-└── infra/               # Infraestrutura
-    └── security/        # Configurações de segurança
-        ├── SecurityConfigurations.java
-        ├── SecurityFilter.java
-        ├── TokenService.java
-        └── AutenticacaoService.java
-
-```
-
-
 ## 📚 Documentação da API
 
 ### 🔓 Endpoints Públicos
